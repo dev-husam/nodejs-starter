@@ -2,16 +2,14 @@ const mongoose = require("mongoose")
 
 
 function connectToDb(url) {
+
     mongoose.set('strictQuery', true)
     mongoose.connect(url, {
 
     }).then(res => {
-        console.log("database connected successfully")
+        console.log({ status: "success", message: "database connected successfully" })
     }).catch(error => {
-        console.log({
-            status: "error",
-            message: error.message
-        })
+        console.log({ status: "error", message: error })
         process.exit(1)
     })
 }

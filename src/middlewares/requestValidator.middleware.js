@@ -1,5 +1,6 @@
 const { HttpErrorException } = require("../expections/httpError.exception")
-
+const validator = require("jsonschema").Validator
+const reqValidator = new validator()
 function validateRequestMiddleware(schema) {
     return (req, res, next) => {
         const result = reqValidator.validate(req.body, schema)
