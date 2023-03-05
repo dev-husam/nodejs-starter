@@ -5,7 +5,7 @@ const { reqValidator, signUpSchema } = require("./validations/signUpSchema.valid
 const router = require("express").Router()
 
 
-router.route("/login").post(login)
+router.post("/login", login)
 router.route("/register").post(validateRequestMiddleware(signUpSchema), register)
 
 

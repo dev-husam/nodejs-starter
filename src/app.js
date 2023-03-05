@@ -22,11 +22,11 @@ const app = express()
 const port = EnvVariables.PORT
 
 //middleware
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
+app.use(express.json({ limit: "1mb" }))
+app.use(express.urlencoded({ extended: false, limit: '1mb' }))
 
 app.get("/api/v1", (req, res) => {
-    res.send("ok")
+    res.send("server is started successfully")
 })
 
 app.use("/api/v1/admin", adminRouter)

@@ -1,7 +1,7 @@
 const { HttpErrorException } = require("../expections/httpError.exception");
 
 function errorHandlerMiddleware(err, req, res, next) {
-    let error = { ...err }
+    console.log(err);
     if (err instanceof HttpErrorException) {
         return res.status(err.statusCode).json({ status: "failed", message: err.message, data: null })
     }
